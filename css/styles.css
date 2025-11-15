@@ -1,18 +1,4 @@
 @font-face {
-    font-family: "CormorantGaramond";
-    src: url("/assets/fonts/CormorantGaramond-VariableFont_wght.ttf") format("truetype");
-    font-weight: 300 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "CormorantGaramond";
-    src: url("/assets/fonts/CormorantGaramond-Italic-VariableFont_wght.ttf") format("truetype");
-    font-weight: 300 700;
-    font-style: italic;
-}
-
-@font-face {
     font-family: "Lato";
     src: url("/assets/fonts/Lato-Regular.ttf") format("truetype");
     font-weight: 400;
@@ -26,15 +12,7 @@
     font-style: normal;
 }
 
-h1, h2, h3 {
-    font-family: "CormorantGaramond", serif;
-}
-
-body {
-    font-family: "Lato", sans-serif;
-}
-
-/* gatsby theme */
+/* Gatsby Theme */
 :root {
     --gatsby-navy: #0a1a2b;
     --gatsby-gold: #d4af37;
@@ -42,11 +20,15 @@ body {
     --gatsby-text: #ffffff;
 }
 
-/* reset */
+/* Base */
 body {
+    font-family: "Lato", Arial, Helvetica, sans-serif;
     background-color: var(--gatsby-navy);
     color: var(--gatsby-light);
-    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
 }
 
 section {
@@ -54,7 +36,38 @@ section {
     padding-bottom: 4rem;
 }
 
-/* carousel */
+/* Headings */
+h1, h2, h3, h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--gatsby-gold);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.28);
+    margin-bottom: 1rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--gatsby-navy) !important;
+    border-bottom: 1px solid var(--gatsby-gold);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--gatsby-gold) !important;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+    text-shadow: 0 0 8px var(--gatsby-gold);
+}
+
+/* Hero */
+.hero {
+    background-color: var(--gatsby-light);
+    color: #000;
+    border-bottom: 3px solid var(--gatsby-gold);
+}
+
+/* Carousel */
 .carousel-section img {
     border: 3px solid var(--gatsby-gold);
     border-radius: 8px;
@@ -65,43 +78,7 @@ section {
     filter: invert(100%);
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(100%);
-}
-
-/* headings */
-h1, h2, h3, h4 {
-    font-family: 'Cinzel', serif;
-    color: var(--gatsby-gold);
-    text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
-}
-
-/* navbar */
-.navbar {
-    background-color: var(--gatsby-navy) !important;
-    border-bottom: 1px solid var(--gatsby-gold);
-}
-
-.navbar-brand, 
-.nav-link {
-    color: var(--gatsby-gold) !important;
-    font-weight: bold;
-}
-
-.nav-link:hover {
-    color: #fff !important;
-    text-shadow: 0 0 8px var(--gatsby-gold);
-}
-
-/* hero */
-.hero {
-    background-color: var(--gatsby-light);
-    color: #000;
-    border-bottom: 3px solid var(--gatsby-gold);
-}
-
-/* accordion */
+/* Accordion */
 .accordion-item {
     background-color: var(--gatsby-navy);
     border: 1px solid var(--gatsby-gold);
@@ -120,14 +97,11 @@ h1, h2, h3, h4 {
 }
 
 .accordion-body {
+    background-color: var(--gatsby-navy);
     color: var(--gatsby-gold) !important;
 }
 
-.accordion-body {
-    background-color: var(--gatsby-navy);
-}
-
-/* tabs */
+/* Tabs */
 .nav-tabs .nav-link {
     color: var(--gatsby-gold);
     font-weight: bold;
@@ -139,29 +113,41 @@ h1, h2, h3, h4 {
     color: #fff;
 }
 
+.tab-content {
+    background-color: var(--gatsby-navy);
+    border: 2px solid var(--gatsby-gold);
+    padding: 1.25rem;
+    border-radius: 8px;
+}
+
 .tab-content p,
 .tab-content a,
 .tab-content strong {
     color: var(--gatsby-gold) !important;
 }
 
-/* reviews */
+/* Reviews */
 .card {
     background-color: #11263b;
     border: 1px solid var(--gatsby-gold);
     color: var(--gatsby-light);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;      
+    padding: 1.5rem;
+    height: 100%;
 }
 
-.card h5 {
-    color: var(--gatsby-gold);
-}
 
-/* author */
+/* Author */
 .author-section {
     background-color: var(--gatsby-navy);
     border-top: 3px solid var(--gatsby-gold);
     border-bottom: 3px solid var(--gatsby-gold);
+    text-align: center;
 }
 
 .author-photo {
@@ -178,3 +164,79 @@ h1, h2, h3, h4 {
     color: var(--gatsby-light);
     line-height: 1.6;
 }
+
+@media (max-width: 991px) {
+
+    /* Second Layout (Vertical Stack) */
+    .hero .row {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .hero .col-md-6:first-child {
+        order: 1;
+    }
+
+    .hero .col-md-6:last-child {
+        order: 2;
+        margin-top: 1.5rem;
+    }
+
+    .hero img {
+        max-width: 70%;
+        margin: 0 auto;
+    }
+
+    /* vertical */
+    .reviews .row {
+        flex-direction: column !important;
+        gap: 1.5rem;
+    }
+
+    .reviews .card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* vertical */
+    .nav-tabs {
+        flex-direction: column !important;
+        align-items: stretch;
+    }
+
+    .nav-tabs .nav-link {
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    /* adjusted image */
+    .carousel-section img {
+        max-height: 200px;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    /* width and center */
+    .accordion {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    /* adjusted photo */
+    .author-photo {
+        width: 150px;
+    }
+
+    .author-text {
+        font-size: 1rem;
+        max-width: 90%;
+        margin: 0.5rem auto;
+    }
+
+    /* adjusted padding */
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Not a whole new layout, just an improved version (stacked most of the content) of the default layout */
